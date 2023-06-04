@@ -13,3 +13,6 @@ Import-Module ADDSDeployment
 Install-ADDSForest
 ```
 
+3. Setup Groups & Users
+    - Use JSON for user and groups `ad_schema.json`
+    - Powershell Script for implementing the json file `gen_ad.ps1`
