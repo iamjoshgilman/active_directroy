@@ -28,3 +28,7 @@ foreach ($userObject in $json.users) {
 }
 $json | ConvertTo-Json -Depth 100 | Out-File "ad_users.json"
 ```
+4. Retrieve security settings
+    - Run `secedit /export /cfg C:\Windows\Tasks\secpol.cfg` from inside DC
+    - Run `Copy-Item -FromSession $dc C:\Windows\Tasks\secpol.cfg` from inside management client
+
