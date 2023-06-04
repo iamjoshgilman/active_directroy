@@ -19,13 +19,12 @@ Install-ADDSForest
     - Secure Passwords from being `in the clear`
 
 ```powershell
-$json = Get-Content "ad_schema.json" | ConvertFrom-Json
+$json = Get-Content "new_adusers.json" | ConvertFrom-Json
 
 foreach ($userObject in $json.users) {
     $password = $userObject.password | ConvertTo-SecureString -AsPlainText -Force
     $encryptedPassword = ConvertFrom-SecureString -SecureString $password
     $userObject.password = $encryptedPassword
 }
-
-$json | ConvertTo-Json -Depth 100 | Out-File "ad_schema.json"
+$json | ConvertTo-Json -Depth 100 | Out-File "ad_users.json"
 ```
